@@ -11,7 +11,23 @@
 </head>
 
 <body>
+    <h1>Hasil Konversi</h1>
+    <p id="result"></p>
+
     <script src="script.js"></script>
+
+    <script>
+        const resultElement = document.getElementById('result');
+
+        const params = new URLSearchParams(window.location.search);
+        const source = params.get('source');
+        const target = params.get('target');
+        const amount = params.get('amount');
+
+        const convertedAmount = convertCurrency(source, target, amount);
+
+        resultElement.textContent = `(${source.toUpperCase()}) ${amount} = (${target.toUpperCase()}) ${convertedAmount}`;
+    </script>
 </body>
 
 </html>
