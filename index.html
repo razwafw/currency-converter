@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Konversi Mata Uang</title>
+<link rel="stylesheet" href="styleindex.css">
+
   <style> 
     body {
       font-family: Arial, sans-serif;
@@ -25,33 +27,33 @@
   </style>
 </head>
 <body>
-  <h2>Form Konversi Mata Uang</h2>
-  <form id="currencyForm" action="results.html">
-    <label for="amount">Jumlah:</label>
-    <input type="number" id="amount" name="amount" required>
-
-    <label for="source">Dari Mata Uang:</label>
-    <select id="source" name="source">
-      <option value="idr">IDR</option>
-      <option value="usd">USD</option>
-      <option value="eur">EUR</option>
-      <option value="cyn">CYN</option>
-      <option value="jpy">JPY</option>
-    </select>
-
-    <label for="target">Ke Mata Uang:</label>
-    <select id="target" name="target">
-      <option value="idr">IDR</option>
-      <option value="usd">USD</option>
-      <option value="eur">EUR</option>
-      <option value="cyn">CYN</option>
-      <option value="jpy">JPY</option>
-    </select>
-
-    <button type="submit">Konversi</button>
-  </form>
-
-  <div id="result"></div>
+    <div class="container">
+        <h2>Form Konversi Mata Uang</h2>
+        <form id="currencyForm" action="results.html">
+          <label for="amount">Jumlah:</label>
+          <input type="number" id="amount" name="amount" required>
+      
+          <label for="source">Dari Mata Uang:</label>
+          <select id="source" name="source">
+            <option value="idr">IDR</option>
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="cyn">CYN</option>
+            <option value="jpy">JPY</option>
+          </select>
+      
+          <label for="target">Ke Mata Uang:</label>
+          <select id="target" name="target">
+            <option value="idr">IDR</option>
+            <option value="usd">USD</option>
+            <option value="eur">EUR</option>
+            <option value="cyn">CYN</option>
+            <option value="jpy">JPY</option>
+          </select>
+      
+          <button type="submit">Konversi</button>
+        </form>
+    </div>
 
 </body>
 </html>
