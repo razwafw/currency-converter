@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Konversi Mata Uang</title>
-  <style>
+  <style> 
     body {
       font-family: Arial, sans-serif;
       padding: 20px;
@@ -30,18 +30,22 @@
     <label for="amount">Jumlah:</label>
     <input type="number" id="amount" name="amount" required>
 
-    <label for="from">Dari Mata Uang:</label>
-    <select id="from" name="from">
-      <option value="USD">USD</option>
-      <option value="IDR">IDR</option>
-      <option value="EUR">EUR</option>
+    <label for="source">Dari Mata Uang:</label>
+    <select id="source" name="source">
+      <option value="idr">IDR</option>
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+      <option value="cyn">CYN</option>
+      <option value="jpy">JPY</option>
     </select>
 
-    <label for="to">Ke Mata Uang:</label>
-    <select id="to" name="to">
-      <option value="IDR">IDR</option>
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
+    <label for="target">Ke Mata Uang:</label>
+    <select id="target" name="target">
+      <option value="idr">IDR</option>
+      <option value="usd">USD</option>
+      <option value="eur">EUR</option>
+      <option value="cyn">CYN</option>
+      <option value="jpy">JPY</option>
     </select>
 
     <button type="submit">Konversi</button>
@@ -49,28 +53,5 @@
 
   <div id="result"></div>
 
-  <script>
-    const rates = {
-      USD: { IDR: 15700, EUR: 0.92 },
-      IDR: { USD: 1/15700, EUR: 0.000058 },
-      EUR: { USD: 1.09, IDR: 17200 }
-    };
-
-    function convertCurrency(event) {
-      event.preventDefault();
-      const amount = parseFloat(document.getElementById('amount').value);
-      const from = document.getElementById('from').value;
-      const to = document.getElementById('to').value;
-
-      if (from === to) {
-        document.getElementById('result').textContent = `Hasil: ${amount.toFixed(2)} ${to}`;
-        return;
-      }
-
-      const rate = rates[from][to];
-      const result = amount * rate;
-      document.getElementById('result').textContent = `Hasil: ${result.toFixed(2)} ${to}`;
-    }
-  </script>
 </body>
 </html>
