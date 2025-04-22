@@ -8,23 +8,101 @@
         content="width=device-width, initial-scale=1.0"
     >
     <title>Hasil Konversi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+    
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+    
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+    
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    
+        tr:last-child td {
+            border-bottom: none;
+        }
+    
+        .back-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    
+        .back-btn:hover {
+            background: #205b5b;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Hasil Konversi</h1>
     <p id="result"></p>
 
+    <table>
+        <thead>
+            <tr>
+            <th>Mata Uang Asal</th>
+            <th>Jumlah</th>
+            <th>Mata Uang Tujuan</th>
+            <th>Hasil</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="sourceCurrency"></td>
+                <td id="amountValue"></td>
+                <td id="targetCurrency"></td>
+                <td id="convertedValue"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="index.html" class="back-btn">Back</a>
+  
     <script src="script.js"></script>
 
     <script>
-        const resultElement = document.getElementById('result');
-
         const params = new URLSearchParams(window.location.search);
         const source = params.get('source');
         const target = params.get('target');
         const amount = params.get('amount');
 
         const convertedAmount = convertCurrency(source, target, amount);
+
+        document.getElementById('sourceCurrency').textContent = source.toUpperCase();
+        document.getElementById('amountValue').textContent = amount;
+        document.getElementById('targetCurrency').textContent = target.toUpperCase();
+        document.getElementById('convertedValue').textContent = convertedAmount;
 
         resultElement.textContent = `(${source.toUpperCase()}) ${amount} = (${target.toUpperCase()}) ${convertedAmount}`;
     </script>
